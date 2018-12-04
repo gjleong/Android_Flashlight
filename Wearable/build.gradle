@@ -1,8 +1,8 @@
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -13,23 +13,17 @@ buildscript {
 apply plugin: 'com.android.application'
 
 repositories {
-    jcenter()
     google()
+    jcenter()
 }
 
 
 
 dependencies {
-
-
-
     compile 'com.google.android.gms:play-services-wearable:11.8.0'
-    compile 'com.android.support:support-v13:27.0.2'
-
+    compile 'com.android.support:support-compat:27.0.2'
     provided 'com.google.android.wearable:wearable:2.2.0'
-
     compile 'com.google.android.support:wearable:2.2.0'
-
 }
 
 // The sample build uses multiple directories to
@@ -42,9 +36,9 @@ List<String> dirs = [
 
 android {
 
-    compileSdkVersion 27
+    compileSdkVersion 28
 
-    buildToolsVersion "27.0.2"
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         versionCode 1
@@ -52,7 +46,7 @@ android {
 
         minSdkVersion 18
 
-        targetSdkVersion 22
+        targetSdkVersion 26
 
 
     }
