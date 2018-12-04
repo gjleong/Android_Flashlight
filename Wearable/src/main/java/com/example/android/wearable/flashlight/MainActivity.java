@@ -16,11 +16,11 @@
 
 package com.example.android.wearable.flashlight;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 /**
  * Let there be light.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     private ViewPager mViewPager;
 
@@ -42,12 +42,12 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.main);
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        final LightFragmentAdapter adapter = new LightFragmentAdapter(getFragmentManager());
+        final LightFragmentAdapter adapter = new LightFragmentAdapter(this.getSupportFragmentManager());
         adapter.addFragment(new WhiteLightFragment());
         final PartyLightFragment partyFragment = new PartyLightFragment();
         adapter.addFragment(partyFragment);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
